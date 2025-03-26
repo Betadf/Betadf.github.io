@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多媒体展示</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .container div {
+            text-align: center;
+        }
+        .comment-section {
+            margin-top: 30px;
+        }
+        #comments {
+            margin-top: 20px;
+            text-align: left;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            border: 1px solid #ccc;
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <h1>请选择你的英雄——类人群星闪耀时</h1>
+    
+    <div class="container">
+        <div><img src="1.png" alt="图片1" width="200"></div>
+        <div><img src="2.png" alt="图片2" width="200"></div>
+        <div><img src="3.png" alt="图片3" width="200"></div>
+    </div>
+    
+    <div class="container">
+        <div><input type="text" placeholder="输入文本1"></div>
+        <div><input type="text" placeholder="输入文本2"></div>
+        <div><input type="text" placeholder="输入文本3"></div>
+    </div>
+    
+    <div class="container">
+        <div><video width="200" controls><source src="1.mp4" type="video/mp4">您的浏览器不支持视频播放。</video></div>
+        <div><video width="200" controls><source src="2.mp4" type="video/mp4">您的浏览器不支持视频播放。</video></div>
+        <div><video width="200" controls><source src="3.mp4" type="video/mp4">您的浏览器不支持视频播放。</video></div>
+    </div>
+    
+    <div class="comment-section">
+        <h2>留言区</h2>
+        <textarea id="comment-input" rows="4" cols="50" placeholder="请输入您的留言..."></textarea><br>
+        <button onclick="submitComment()">提交留言</button>
+        <div id="comments"></div>
+    </div>
+
+    <script>
+        function submitComment() {
+            var commentInput = document.getElementById('comment-input');
+            var commentText = commentInput.value.trim();
+            if (commentText === '') {
+                alert('留言不能为空！');
+                return;
+            }
+            var commentsDiv = document.getElementById('comments');
+            var newComment = document.createElement('p');
+            newComment.textContent = commentText;
+            commentsDiv.appendChild(newComment);
+            commentInput.value = '';
+        }
+    </script>
+</body>
+</html>
