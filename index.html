@@ -62,6 +62,8 @@
     </div>
 
     <script>
+        document.addEventListener("DOMContentLoaded", loadComments);
+
         function submitComment() {
             var commentInput = document.getElementById('comment-input');
             var commentText = commentInput.value.trim();
@@ -69,12 +71,29 @@
                 alert('留言不能为空！');
                 return;
             }
+            saveComment(commentText);
+            displayComment(commentText);
+            commentInput.value = '';
+        }
+
+        function saveComment(comment) {
+            let comments = JSON.parse(localStorage.getItem("comments")) || [];
+            comments.push(comment);
+            localStorage.setItem("comments", JSON.stringify(comments));
+        }
+
+        function loadComments() {
+            let comments = JSON.parse(localStorage.getItem("comments")) || [];
+            comments.forEach(displayComment);
+        }
+
+        function displayComment(comment) {
             var commentsDiv = document.getElementById('comments');
             var newComment = document.createElement('p');
-            newComment.textContent = commentText;
+            newComment.textContent = comment;
             commentsDiv.appendChild(newComment);
-            commentInput.value = '';
         }
     </script>
 </body>
 </html>
+
