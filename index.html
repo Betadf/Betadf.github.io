@@ -43,9 +43,9 @@
     </div>
     
     <div class="container">
-        <div><input type="text" placeholder="输入文本1"></div>
-        <div><input type="text" placeholder="输入文本2"></div>
-        <div><input type="text" placeholder="输入文本3"></div>
+        <div><input type="text" placeholder="Max Verstappen说的话永远都是对的"></div>
+        <div><input type="text" placeholder="国民党反动派，大文帝国皇帝，传奇图寻王，曾多次御驾亲征使用王八拳之力击败维斯塔潘"></div>
+        <div><input type="text" placeholder="DBJ，谢博耶夫，命由己造，现因为喝海鲜粥住院"></div>
     </div>
     
     <div class="container">
@@ -55,9 +55,9 @@
     </div>
     
     <div class="comment-section">
-        <h2>留言区</h2>
-        <textarea id="comment-input" rows="4" cols="50" placeholder="请输入您的留言..."></textarea><br>
-        <button onclick="submitComment()">提交留言</button>
+        <h2>评论区</h2>
+        <textarea id="comment-input" rows="4" cols="50" placeholder="请输入..."></textarea><br>
+        <button onclick="submitComment()">提交评论</button>
         <div id="comments"></div>
     </div>
 
@@ -68,7 +68,7 @@
             var commentInput = document.getElementById('comment-input');
             var commentText = commentInput.value.trim();
             if (commentText === '') {
-                alert('留言不能为空！');
+                alert('不能发送空格！');
                 return;
             }
             saveComment(commentText);
